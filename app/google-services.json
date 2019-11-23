@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "873360204919",
+    "firebase_url": "https://dlafirebaseauthentication.firebaseio.com",
+    "project_id": "dlafirebaseauthentication",
+    "storage_bucket": "dlafirebaseauthentication.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:873360204919:android:f65dfa97a371829ff5d272",
+        "android_client_info": {
+          "package_name": "com.dishalaser.DLA_FirebaseAuthentication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "873360204919-4td8opbpgd3megtqrugctj8l1958q6ff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dishalaser.DLA_FirebaseAuthentication",
+            "certificate_hash": "c7e3f0783e191426dc848c7ed30c1923301bda16"
+          }
+        },
+        {
+          "client_id": "873360204919-0n4ui3sonf17gv5566ghtscdtkfoc3fc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgfHvj6K25IY8_dA-MDqo_OFM4sYElrwE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "873360204919-0n4ui3sonf17gv5566ghtscdtkfoc3fc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
