@@ -1,5 +1,6 @@
 package com.dishalaser.DLA_FirebaseAuthentication;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,15 +21,27 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 public class MainActivity extends AppCompatActivity {
-    private static final int MY_REQUEST_CODE = 144;
+    private static final int MY_REQUEST_CODE = 7171;
 
     List<AuthUI.IdpConfig> providers;
-    Button btnSignout = (Button) findViewById(R.id.btn_signout);
+    Button btnSignout;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnSignout = findViewById(R.id.btn_signout);
+
+        providers = Arrays.asList(
+                new AuthUI.IdpConfig.GoogleBuilder().build(),
+                new AuthUI.IdpConfig.FacebookBuilder().build(),
+                new AuthUI.IdpConfig.PhoneBuilder().build()
+        );
+        showSignInOptions();
+
         btnSignout.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
@@ -50,12 +63,6 @@ public class MainActivity extends AppCompatActivity {
         });
 //        mAuth = FirebaseAuth.getInstance();
 
-        providers = Arrays.asList(
-                new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.FacebookBuilder().build(),
-                new AuthUI.IdpConfig.PhoneBuilder().build()
-        );
-        showSignInOptions();
     }
 
     private void showSignInOptions() {
@@ -76,12 +83,12 @@ public class MainActivity extends AppCompatActivity {
             if(resultCode == RESULT_OK)
             {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-                Toast.makeText(this, ""+user.getEmail(),Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, ""+user.getEmail(),Toast.LENGTH_LONG).show();
                 btnSignout.setEnabled(true);
             }
             else
             {
-                Toast.makeText(this, ""+response.getError().getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(MainActivity.this, ""+response.getError().getMessage(), Toast.LENGTH_LONG).show();
             }
         }
     }
