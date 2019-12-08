@@ -29,14 +29,22 @@ public class MainActivity extends AppCompatActivity {
 
     List<AuthUI.IdpConfig> providers;
     Button btnSignout;
-    TextView tvUserNmae;
+    Button btnPrevCases;
+    Button btnNewCase;
+    Button btnChat;
+    Button btnFAQ;
+    TextView tvUserName;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         btnSignout = findViewById(R.id.btn_signout);
-        tvUserNmae = findViewById(R.id.tv_user_name);
+        tvUserName = findViewById(R.id.tv_user_name);
+        btnPrevCases = findViewById(R.id.btn_previous_cases);
+        btnNewCase = findViewById(R.id.btn_new_cases);
+        btnChat = findViewById(R.id.btn_chatbox);
+        btnFAQ = findViewById(R.id.btn_faqs);
 
         providers = Arrays.asList(
                 new AuthUI.IdpConfig.EmailBuilder().build(),
@@ -65,6 +73,13 @@ public class MainActivity extends AppCompatActivity {
                         });
                 }
         });
+        btnNewCase.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity.this, newCaseForm.class));
+//                setContentView(R.layout.new_case_form);
+            }
+        });
     }
 
     private void showSignInOptions() {
@@ -86,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
                 if (resultCode == RESULT_OK) {
                     FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                     if(user.getDisplayName()!=null)
-                        tvUserNmae.setText(user.getDisplayName());
+                        tvUserName.setText(user.getDisplayName());
                     Toast.makeText(MainActivity.this, "" + user.getEmail(), Toast.LENGTH_LONG).show();
                     btnSignout.setEnabled(true);
                 } else {
