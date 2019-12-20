@@ -1,6 +1,5 @@
 package com.dishalaser.DLA_FirebaseAuthentication;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -22,10 +21,10 @@ import java.util.List;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
 public class MainActivity extends AppCompatActivity {
     private static final int MY_REQUEST_CODE = 7171;
+    private static int SPLASH_SCREEN_TIME_OUT = 2000;
 
     List<AuthUI.IdpConfig> providers;
     Button btnSignout;
@@ -73,11 +72,12 @@ public class MainActivity extends AppCompatActivity {
                         });
                 }
         });
+        //Start New Case Form Page Activity
         btnNewCase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, newCaseForm.class));
-//                setContentView(R.layout.new_case_form);
+                startActivity(new Intent(MainActivity.this, NewCaseForm.class));
+
             }
         });
     }
