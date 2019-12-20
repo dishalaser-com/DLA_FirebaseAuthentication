@@ -8,6 +8,6 @@ public class NewCaseForm extends AppCompatActivity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.new_case_form);
+            setContentView(R.layout.activity_newcase_form);
     }
 }
